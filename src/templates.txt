@@ -1,0 +1,4 @@
+write templates for axios functions here
+
+const res = await axios.get('https://nyc-bus-engine-k3q4yvzczq-an.a.run.app/api/bus_trip/ready');
+res.data.args; // { status: ""ready }
