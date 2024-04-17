@@ -3,7 +3,10 @@ import { React, useState } from "react";
 const Dropdown = (props) => {
   const [display, setdisplay] = useState(false);
   return (
-    <button onClick={() => setdisplay(!display)}>
+    <button
+      onClick={() => setdisplay(!display)}
+      style={{ position: "relative", zIndex: 5 }}
+    >
       <div>{props.header}</div>
       {display ? (
         <ul>

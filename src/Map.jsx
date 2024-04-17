@@ -4,7 +4,7 @@ import "leaflet/dist/leaflet.css";
 
 const Map = () => {
   return (
-    <div style={{ height: 536, width: 536, zIndex: 3 }}>
+    <div style={{ height: 536, width: 536, zIndex: 3, position: "absolute" }}>
       <MapContainer
         center={[51.505, -0.09]}
         zoom={13}
