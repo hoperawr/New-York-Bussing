@@ -8,15 +8,17 @@ const Dropdown = (props) => {
       style={{ position: "relative", zIndex: 5 }}
     >
       <div>{props.header}</div>
-      {display ? (
-        <ul>
-          {props.data.map(function (x) {
-            return <li>{x}</li>;
-          })}
-        </ul>
-      ) : (
-        <></>
-      )}
+      <div>
+        {display ? (
+          <ul>
+            {props.data.map(function (x) {
+              return <li>{x}</li>;
+            })}
+          </ul>
+        ) : (
+          <></>
+        )}
+      </div>
     </button>
   );
 };

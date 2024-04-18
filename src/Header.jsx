@@ -6,6 +6,7 @@ const Header = () => {
   // shouldnt be in header, temporary thing, only check this when need to ask other shit from server
   const [busNumbers, setBusNumbers] = useState([]);
   const [displayNumbers, setdisplayNumbers] = useState(false);
+  const [pubLine, setpubLine] = useState([]);
   async function checkReady() {
     console.log("Checking Server");
     while (true) {
@@ -24,6 +25,13 @@ const Header = () => {
     // list of all the bus numbers
     console.log(res2.data);
     setBusNumbers(res2.data);
+
+    const res3 = await axios.get(
+      "https://nyc-bus-engine-k3q4yvzczq-an.a.run.app/api/bus_trip/getPubLineName"
+    );
+    // list of all the bus numbers
+    console.log(res3.data);
+    setpubLine(res3.data);
   }
   useEffect(() => {
     checkReady();
@@ -33,17 +41,21 @@ const Header = () => {
     <div
       style={{
         position: "absolute",
+        display: "flex",
         top: "0",
-        height: "50px",
+        height: "75px",
         backgroundColor: "#98F5F9",
         width: "100vw",
         margin: "0",
         padding: "0",
         left: "0",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
-      <div>This is a Header</div>
+      <div>New York Bussing</div>
       <Dropdown header="Bus Numbers" data={busNumbers} />
+      <Dropdown header="Pub Lines" data={pubLine} />
     </div>
   );
 };
